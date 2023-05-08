@@ -1,0 +1,27 @@
+<table class="w-full">
+  <thead>
+    <tr class="bg-gray-100">
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Model</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">RAM</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">HDD</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
+      <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        <button type="button" class="flex items-center" (click)="sortServers('price')">
+          Price
+          <svg class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 3l-6 9h12l-6-9z" />
+          </svg>
+        </button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="border-t border-gray-200" *ngFor="let server of servers">
+      <td class="px-6 py-4 whitespace-nowrap">{{ server.model }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ server.ram }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ server.hdd }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">{{ server.location }}</td>
+      <td class="px-6 py-4 whitespace-nowrap">${{ server.price }}</td>
+    </tr>
+  </tbody>
+</table>
