@@ -1,26 +1,12 @@
-<div class="px-4 sm:px-6 lg:px-8">
-  <div class="sm:flex sm:items-center">
-    <div class="sm:flex-auto">
-      <h1 class="text-base font-semibold leading-6 text-gray-900">Filters</h1>
-      <p class="mt-2 text-sm text-gray-700">Your team is using the following servers.</p>
-    </div>
-    <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-      <button type="button"
-              class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-        Add Server
-      </button>
-    </div>
-  </div>
-
-  <div class="-mx-4 mt-10 ring-1 ring-gray-300 sm:mx-0 sm:rounded-lg">
-    <table class="min-w-full divide-y divide-gray-300">
+<div class="-mx-4 mt-10 ring-1 ring-gray-300 sm:mx-0 sm:rounded-lg">
+   <table class="min-w-full divide-y divide-gray-300">
       <thead>
-      <tr class="bg-gray-100">
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Model</th>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">RAM</th>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">HDD</th>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Location</th>
-        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+        <tr>
+         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Model</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">RAM</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">HDD</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Location</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
           <button type="button" class="flex items-center" (click)="sortServers('price')">
             Price
             <svg class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -31,14 +17,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr class="border-t border-gray-200" *ngFor="let server of servers">
-        <td class="px-6 py-4 whitespace-nowrap">{{ server.model }}</td>
-        <td class="px-6 py-4 whitespace-nowrap">{{ server.ram }}</td>
-        <td class="px-6 py-4 whitespace-nowrap">{{ server.hdd }}</td>
-        <td class="px-6 py-4 whitespace-nowrap">{{ server.location }}</td>
-        <td class="px-6 py-4 whitespace-nowrap">${{ server.price }}</td>
+      <tr *ngFor="let server of servers">
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.model }}</td>
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.ram }}</td>
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.hdd }}</td>
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.location }}</td>
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">${{ server.price }}</td>
       </tr>
       </tbody>
     </table>
   </div>
-</div>
