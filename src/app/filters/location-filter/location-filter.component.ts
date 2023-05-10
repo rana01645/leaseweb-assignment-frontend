@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-location-filter',
@@ -7,5 +7,11 @@ import {Component, Input} from '@angular/core';
 })
 export class LocationFilterComponent {
   @Input() locations: any[] = [];
+
+  @Output() selectedLocation = new EventEmitter<string>();
+
+  onChange(event: any) {
+    this.selectedLocation.emit(event.value);
+  }
 
 }

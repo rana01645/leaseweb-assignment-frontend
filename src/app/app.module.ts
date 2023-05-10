@@ -4,7 +4,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {ServersTableComponent} from './servers-table/servers-table.component';
 import {HttpClientModule} from '@angular/common/http';
-import {RangeSliderComponent} from './range-slider/range-slider.component';
+import {RangeSliderComponent} from './utility/range-slider/range-slider.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSelectModule} from "@angular/material/select";

@@ -1,0 +1,4 @@
+<mat-slider [min]="minVal" [max]="maxVal" howTickMarks discrete [displayWith]="formatLabel">
+  <input [value]="min" matSliderStartThumb (dragEnd)="onMinValueUpdated($event)">
+  <input [value]="max" matSliderEndThumb (dragEnd)="onMaxValueUpdated($event)">
+</mat-slider>

@@ -184,23 +184,31 @@
         <ul role="list" class="flex flex-1 flex-col gap-y-7">
           <li>
             <ul role="list" class="-mx-2 space-y-1">
-             <app-storage-filter></app-storage-filter>
+             <app-storage-filter
+              (rangeChanged)="onStorageRangeChanged($event)"
+             ></app-storage-filter>
+              <li>
+                <span class="block border-b border-gray-200 my-4"></span>
+              </li>
+              <app-ram-filter
+                [ramOptions]="ramOptions"
+                (selectionUpdated)="ramSelectionUpdated($event)">
+              </app-ram-filter>
               <li>
                 <span class="block border-b border-gray-200 my-4"></span>
               </li>
 
-              <app-ram-filter [ramOptions]="ramOptions"></app-ram-filter>
-              <li>
-                <span class="block border-b border-gray-200 my-4"></span>
-              </li>
-
-             <app-storage-type-filter></app-storage-type-filter>
+             <app-storage-type-filter
+             (selectedType)="onStorageTypeSelected($event)"
+             ></app-storage-type-filter>
 
               <li>
                 <span class="block border-b border-gray-200 my-4"></span>
               </li>
 
-             <app-location-filter [locations]="locations"></app-location-filter>
+             <app-location-filter
+               (selectedLocation)="onLocationSelected($event)"
+               [locations]="locations"></app-location-filter>
             </ul>
           </li>
         </ul>

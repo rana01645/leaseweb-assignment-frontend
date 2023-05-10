@@ -1,7 +1,7 @@
 <li>
   <mat-form-field appearance="fill">
     <mat-label>Hard Disk Type</mat-label>
-    <mat-select name="hard-disk-type">
+    <mat-select name="hard-disk-type" (selectionChange)="onChange($event)">
       <mat-option value="">Select a type</mat-option>
       <mat-option value="sas">SAS</mat-option>
       <mat-option value="sata">SATA</mat-option>

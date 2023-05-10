@@ -4,6 +4,7 @@
     Ram
   </span>
   <div class="grid grid-cols-2 gap-4">
-    <mat-checkbox *ngFor="let option of ramOptions" formControlName="option">{{ option }}</mat-checkbox>
+    <mat-checkbox *ngFor="let option of ramOptions" formControlName="option"
+                  (click)="changeValue(option)">{{ option }}GB</mat-checkbox>
   </div>
 </li>
