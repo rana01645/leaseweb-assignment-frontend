@@ -1,0 +1,4 @@
+<mat-slider min="0" max="73728" howTickMarks discrete [displayWith]="formatLabel">
+  <input value="0" matSliderStartThumb (dragEnd)="dragEnded($event)">
+  <input value="73728" matSliderEndThumb (dragEnd)="dragEnded($event)">
+</mat-slider>

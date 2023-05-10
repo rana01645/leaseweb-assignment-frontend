@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -7,17 +7,9 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./servers-table.component.scss']
 })
 export class ServersTableComponent {
-  servers: any[] = [];
+  @Input() servers: any[] = [];
 
   constructor(private http: HttpClient) {
-  }
-
-  ngOnInit(): void {
-    this.http.get<any[]>('http://leaseweb.test/server').subscribe(servers => {
-      console.log(servers);
-      this.servers = servers;
-    });
-
   }
 
   sortServers(sortBy: string): void {
