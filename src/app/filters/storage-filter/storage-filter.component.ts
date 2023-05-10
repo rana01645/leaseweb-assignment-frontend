@@ -6,9 +6,9 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./storage-filter.component.scss']
 })
 export class StorageFilterComponent {
-  @Output() rangeChanged = new EventEmitter<{ min: string, max: string }>();
+  @Output() rangeChanged = new EventEmitter<{ min: number, max: number }>();
 
-  onRangeChanged($event: { min: string; max: string }) {
+  onRangeChanged($event: { min: number; max: number }) {
     this.rangeChanged.emit($event);
   }
 }

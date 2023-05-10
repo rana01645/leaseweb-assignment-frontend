@@ -35,7 +35,7 @@ export class AppComponent {
     this.updateServers();
   }
 
-  onStorageRangeChanged($event: { min: string; max: string }) {
+  onStorageRangeChanged($event: { min: number; max: number }) {
     this.filters.hddCapacity = $event.min + '-' + $event.max;
     this.updateServers();
   }

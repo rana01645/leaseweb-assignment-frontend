@@ -7,7 +7,7 @@ import {MatSliderDragEvent} from "@angular/material/slider";
   styleUrls: ['./range-slider.component.scss']
 })
 export class RangeSliderComponent {
-  @Output() rangeChanged = new EventEmitter<{ min: string, max: string }>();
+  @Output() rangeChanged = new EventEmitter<{ min: number, max: number }>();
   minVal = 0;
   maxVal = 73728;
 
@@ -25,11 +25,12 @@ export class RangeSliderComponent {
 
   onMinValueUpdated($event: MatSliderDragEvent) {
     this.min = $event.value;
-    this.rangeChanged.emit({min: this.formatLabel(this.min), max: this.formatLabel(this.max)});
+    this.rangeChanged.emit({min: this.min, max: this.max});
 
   }
 
   onMaxValueUpdated($event: MatSliderDragEvent) {
-    this.rangeChanged.emit({min: this.formatLabel(this.min), max: this.formatLabel(this.max)});
+    this.max = $event.value;
+    this.rangeChanged.emit({min: this.min, max: this.max});
   }
 }
