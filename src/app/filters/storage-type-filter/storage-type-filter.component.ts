@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-storage-type-filter',
@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./storage-type-filter.component.scss']
 })
 export class StorageTypeFilterComponent {
+  @Output() selectedType = new EventEmitter<string>();
+
+   onChange(event: any) {
+    this.selectedType.emit(event.value);
+  }
 
 }

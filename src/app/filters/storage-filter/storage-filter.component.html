@@ -3,5 +3,9 @@
     class="text-gray-700 hover:text-indigo-600 hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
     Storage
   </span>
-  <app-range-slider></app-range-slider>
+  <mat-slider [min]="minVal" [max]="maxVal" step="250" showTickMarks discrete [displayWith]="formatLabel">
+    <input [value]="min" matSliderStartThumb (dragEnd)="onMinValueUpdated($event)">
+    <input [value]="max" matSliderEndThumb (dragEnd)="onMaxValueUpdated($event)">
+  </mat-slider>
+
 </li>
