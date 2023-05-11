@@ -26,4 +26,4 @@ jobs:
             GIT_SSH_COMMAND='ssh -i ~/.ssh/leaseweb-frontend -o IdentitiesOnly=yes' git fetch origin
             GIT_SSH_COMMAND='ssh -i ~/.ssh/leaseweb-frontend -o IdentitiesOnly=yes' git checkout origin/main
             npm install
-            ng build --prod
+            ng build
