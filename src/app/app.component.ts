@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +24,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.http.get<any>('http://leaseweb.test/server').subscribe(response => {
+    this.http.get<any>(`${environment.apiUrl}/server`).subscribe(response => {
       this.servers = response.servers;
       this.locations = response.locations;
       this.ramOptions = response.ramOptions;
@@ -65,7 +66,7 @@ export class AppComponent {
       filterParams = filterParams.set('hdd_capacity', this.filters.hddCapacity);
     }
 
-    this.http.get<any>('http://leaseweb.test/server', {params: filterParams}).subscribe(response => {
+    this.http.get<any>(`${environment.apiUrl}/server`, {params: filterParams}).subscribe(response => {
       this.servers = response.servers;
     });
   }
