@@ -11,6 +11,7 @@ export class AppComponent {
   servers: any[] = [];
   locations: any[] = [];
   ramOptions: any[] = [];
+  loading: boolean = true; // Add a loading flag
 
   filters = {
     location: '',
@@ -24,10 +25,15 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.http.get<any>(`${environment.apiUrl}/server`).subscribe(response => {
       this.servers = response.servers;
       this.locations = response.locations;
       this.ramOptions = response.ramOptions;
+      this.loading = false; // Set loading to false when the data is fetched
+    }, error => {
+      console.error(error);
+      this.loading = false; // Set loading to false even if an error occurs
     });
   }
 

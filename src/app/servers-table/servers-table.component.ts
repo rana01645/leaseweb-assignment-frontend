@@ -8,6 +8,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class ServersTableComponent {
   @Input() servers: any[] = [];
+  @Input() loading: boolean = true;
 
   constructor(private http: HttpClient) {
   }
