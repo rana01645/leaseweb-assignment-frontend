@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://leaseweb.test'
+  apiUrl: 'http://leaseweb-backend.test'
 };
