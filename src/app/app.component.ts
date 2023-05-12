@@ -76,4 +76,14 @@ export class AppComponent {
       this.servers = response.servers;
     });
   }
+
+  orderServers($event: [string, string]) {
+    let orderParams = new HttpParams();
+    orderParams = orderParams.set('order_by', $event[0]);
+    orderParams = orderParams.set('order', $event[1]);
+    this.http.get<any>(`${environment.apiUrl}/server`, {params: orderParams}).subscribe(response => {
+        this.servers = response.servers;
+      }
+    );
+  }
 }

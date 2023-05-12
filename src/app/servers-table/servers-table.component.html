@@ -20,11 +20,81 @@
    <table class="min-w-full divide-y divide-gray-300">
       <thead>
         <tr>
-         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Model</th>
-        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">RAM</th>
-        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">HDD</th>
-        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Location</th>
-        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Price</th>
+         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">
+           <button type="button" class="flex items-center" (click)="orderByColumn('model')">
+             Model
+             <svg *ngIf="currentOrders['model'] ==='desc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor">
+               <path d="M10 3l-6 9h12l-6-9z"/>
+             </svg>
+             <svg *ngIf="currentOrders['model'] ==='asc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor">
+               <path d="M10 17l6-9H4l6 9z"/>
+             </svg>
+           </button>
+         </th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
+          <button type="button" class="flex items-center" (click)="orderByColumn('ram')">
+            Ram
+            <svg *ngIf="currentOrders['ram'] ==='desc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor">
+              <path d="M10 3l-6 9h12l-6-9z"/>
+            </svg>
+            <svg *ngIf="currentOrders['ram'] ==='asc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor">
+              <path d="M10 17l6-9H4l6 9z"/>
+            </svg>
+          </button>
+        </th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
+           <button type="button" class="flex items-center" (click)="orderByColumn('hdd')">
+            HDD
+            <svg *ngIf="currentOrders['hdd'] ==='desc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor">
+              <path d="M10 3l-6 9h12l-6-9z"/>
+            </svg>
+            <svg *ngIf="currentOrders['hdd'] ==='asc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor">
+              <path d="M10 17l6-9H4l6 9z"/>
+            </svg>
+          </button>
+        </th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
+          <button type="button" class="flex items-center" (click)="orderByColumn('location')">
+            Location
+            <svg *ngIf="currentOrders['location'] ==='desc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor">
+              <path d="M10 3l-6 9h12l-6-9z"/>
+            </svg>
+            <svg *ngIf="currentOrders['location'] ==='asc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor">
+              <path d="M10 17l6-9H4l6 9z"/>
+            </svg>
+          </button>
+        </th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">
+          <button type="button" class="flex items-center" (click)="orderByColumn('price')">
+            Price
+            <svg *ngIf="currentOrders['price'] ==='desc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor">
+              <path d="M10 3l-6 9h12l-6-9z"/>
+            </svg>
+            <svg *ngIf="currentOrders['price'] ==='asc'" class="h-4 w-4 ml-1" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 20 20"
+                 fill="currentColor">
+              <path d="M10 17l6-9H4l6 9z"/>
+            </svg>
+          </button>
+        </th>
       </tr>
       </thead>
       <tbody>
