@@ -17,24 +17,24 @@
 
 
 <div *ngIf="!loading" class="-mx-4 mt-10 ring-1 ring-gray-300 sm:mx-0 sm:rounded-lg">
-  <table class="min-w-full divide-y divide-gray-300">
-    <thead>
-    <tr>
-      <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Model</th>
-      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">RAM</th>
-      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">HDD</th>
-      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Location</th>
-      <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Price</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let server of servers">
-      <td class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.model }}</td>
-      <td class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.ram }}</td>
-      <td class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.hdd }}</td>
-      <td class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.location }}</td>
-      <td class="px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.price }}</td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+   <table class="min-w-full divide-y divide-gray-300">
+      <thead>
+        <tr>
+         <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Model</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">RAM</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">HDD</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Location</th>
+        <th scope="col" class="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell">Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let server of servers">
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.model }}</td>
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.ram }}</td>
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.hdd }}</td>
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.location }}</td>
+       <td class="hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell border-t border-gray-200">{{ server.price }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>

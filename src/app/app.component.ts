@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
-import { environment } from '../environments/environment';
+import {environment} from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,7 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
   servers: any[] = [];
+  filteredServers: any[] = [];
   locations: any[] = [];
   ramOptions: any[] = [];
   loading: boolean = true; // Add a loading flag
@@ -28,6 +29,7 @@ export class AppComponent {
     this.loading = true;
     this.http.get<any>(`${environment.apiUrl}/server`).subscribe(response => {
       this.servers = response.servers;
+      this.filteredServers = response.servers;
       this.locations = response.locations;
       this.ramOptions = response.ramOptions;
       this.loading = false; // Set loading to false when the data is fetched
@@ -58,22 +60,34 @@ export class AppComponent {
   }
 
   updateServers() {
-    let filterParams = new HttpParams();
+    // Copy the original servers array to the filteredServers array
+    this.filteredServers = this.servers.slice();
+
+    // Apply each filter conditionally
     if (this.filters.location !== '') {
-      filterParams = filterParams.set('location', this.filters.location);
-    }
-    if (this.filters.hddType !== '') {
-      filterParams = filterParams.set('hdd_type', this.filters.hddType);
-    }
-    if (this.filters.ramCapacity.length > 0) {
-      filterParams = filterParams.set('ram_capacity', this.filters.ramCapacity.join(','));
-    }
-    if (this.filters.hddCapacity !== '') {
-      filterParams = filterParams.set('hdd_capacity', this.filters.hddCapacity);
+      this.filteredServers = this.filteredServers.filter(server => {
+        return server.location.includes(this.filters.location);
+      });
     }
 
-    this.http.get<any>(`${environment.apiUrl}/server`, {params: filterParams}).subscribe(response => {
-      this.servers = response.servers;
-    });
+    if (this.filters.hddType !== '') {
+      this.filteredServers = this.filteredServers.filter(server => {
+        return server.hdd_type.includes(this.filters.hddType);
+      });
+    }
+
+    if (this.filters.ramCapacity.length > 0) {
+      this.filteredServers = this.filteredServers.filter(server => {
+        return this.filters.ramCapacity.includes(server.ram_capacity);
+      });
+    }
+
+    if (this.filters.hddCapacity !== '') {
+      const [min, max] = this.filters.hddCapacity.split('-');
+      this.filteredServers = this.filteredServers.filter(server => {
+        return server.hdd_capacity >= Number(min) && server.hdd_capacity <= Number(max);
+      });
+    }
   }
+
 }
